@@ -1,0 +1,46 @@
+import turtle
+
+# Configuración inicial de la ventana
+wn = turtle.Screen()
+wn.bgcolor("sky blue")
+
+# Configuración de la tortuga
+t = turtle.Turtle()
+t.shape("turtle")
+t.color("green")
+t.speed(0)  # Máxima velocidad
+
+# Función para dibujar un pétalo del girasol
+def draw_petal():
+    t.color("yellow")
+    t.begin_fill()
+    t.forward(100)
+    t.left(45)
+    t.forward(100)
+    t.left(135)
+    t.forward(100)
+    t.left(45)
+    t.forward(100)
+    t.left(135)
+    t.end_fill()
+
+# Función para dibujar el centro del girasol
+def draw_center():
+    t.color("brown")
+    t.begin_fill()
+    t.circle(20)
+    t.end_fill()
+
+# Dibuja los pétalos del girasol
+for _ in range(8):
+    draw_petal()
+    t.left(45)
+
+# Dibuja el centro del girasol
+t.penup()
+t.goto(0, -20)
+t.pendown()
+draw_center()
+
+# Cierra la ventana al hacer clic en ella
+wn.exitonclick()
